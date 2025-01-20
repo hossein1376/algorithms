@@ -1,15 +1,15 @@
 package algorithms
 
-import (
-	"fmt"
-)
-
 func binSearch(slice []int, target int) int {
 	l := len(slice)
-	if l < 2 {
-		panic(fmt.Errorf(
-			"slice has %d elements, expected at least 2", l),
-		)
+	switch l {
+	case 0:
+		return -1
+	case 1:
+		if slice[0] == target {
+			return 0
+		}
+		return -1
 	}
 
 	low := 0
